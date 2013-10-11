@@ -107,11 +107,11 @@ describe "User pages" do
 
   describe "destroy" do
     let(:admin) { FactoryGirl.create(:admin) }
-    before do
-      sign_in admin
-    end
 
-    expect { delete :destroy, :id => admin.id }.should_not change(User, :count)
+    it "admin should not be able to delete himself" do
+      sign_in admin
+      expect { delete user_path(admin) }.to_not change(User, :count)
+    end
   end
 
   describe "edit" do
