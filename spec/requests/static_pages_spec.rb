@@ -33,6 +33,17 @@ describe "Static pages" do
         end
       end
     end
+
+    describe "the sidebar" do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        sign_in user
+      end
+
+      it "should have the right count of microposts" do
+      end
+    end
+
   end
 
   describe "Help page" do
